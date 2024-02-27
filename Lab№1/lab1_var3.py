@@ -1,21 +1,36 @@
-class kIsGreaterThenSizeOfArr (Exception):
-    def __init__(self, message = 'K is greater then size of input array'):
+class KIsGreaterThenSizeOfArr (Exception):
+    def __init__(self, message='K is greater then size of input array'):
         self.message = message
         super().__init__(self.message)
 
-def find_k_max(k, arr):
-    n = len(arr)
-    if k > n or k <= 0:
-        raise kIsGreaterThenSizeOfArr
-    if n == 0:
-        raise ValueError("Array is empty")
 
-    indexed_arr = [(val, idx) for idx, val in enumerate(arr)]
+def set_pivot(elem, left, right):
+    pivot = elem[right]
+    i = left - 1
+    for j in range(left, right):
+        if elem[j] >= pivot:
+            i += 1
+            elem[i], elem[j] = elem[j], elem[i]
+    elem[i+1], elem[right] = elem[right], elem[i+1]
+    return i + 1
 
-    for i in range(k):
-        max_ind = i
-        for j in range(i + 1, n):
-            if indexed_arr[j][0] > indexed_arr[max_ind][0]:
-                    max_ind = j
-        indexed_arr[i], indexed_arr[max_ind] = indexed_arr[max_ind], indexed_arr[i]
-    return indexed_arr[k-1][0] , indexed_arr[k-1][1]
+
+def quick_select(elem, left, right, k):
+    if left <= right:
+        pivot_idx = set_pivot(elem, left, right)
+        if pivot_idx == k:
+            return elem[pivot_idx]
+        elif pivot_idx < k:
+            return quick_select(elem, pivot_idx + 1, right, k)
+        else:
+            return quick_select(elem, left, pivot_idx - 1, k)
+
+
+def find_k_or_error(elem, k):
+    if k < 1 or k > len(elem):
+        raise KIsGreaterThenSizeOfArr()
+    return quick_select(elem, 0, len(elem)-1, k-1)
+
+
+if __name__ == '__main__':
+    print(find_k_or_error([3, 2, 1, 5, 6, 4], 3))

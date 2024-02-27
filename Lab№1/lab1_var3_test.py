@@ -1,16 +1,19 @@
 import unittest
-from lab1_var3 import kIsGreaterThenSizeOfArr, find_k_max
+from lab1_var3 import KIsGreaterThenSizeOfArr, find_k_or_error
 
-class TestKMax(unittest.TestCase):
-    def test_k_is_less_then_size(self):
-        arr = [-1, 22, 40, -2222, 1111, -2, 3, 1000]
-        max_element, position = find_k_max(3, arr)
-        self.assertEqual(max_element, 40)
-        self.assertEqual(position, 2)
-    def test_k_is_greater_then_size(self):
-        arr = [-1, 22, 40, -2222, 1111, -2, 3, 1000]
-        with self.assertRaises(kIsGreaterThenSizeOfArr):
-            find_k_max(10, arr)
+
+class TestKthLargestElement(unittest.TestCase):
+    def test_find_kth_largest(self):
+        self.assertEqual(find_k_or_error([3, 2, 1, 5, 6, 4], 1), 6)
+        self.assertEqual(find_k_or_error([3, 2, 1, 5, 6, 4], 2), 5)
+        self.assertEqual(find_k_or_error([3, 2, 1, 5, 6, 4], 3), 4)
+
+    def test_k_out_of_bounds(self):
+        with self.assertRaises(KIsGreaterThenSizeOfArr):
+            find_k_or_error([3, 2, 1, 5, 6, 4], 0)
+        with self.assertRaises(KIsGreaterThenSizeOfArr):
+            find_k_or_error([3, 2, 1, 5, 6, 4], 7)
+
 
 if __name__ == '__main__':
     unittest.main()
