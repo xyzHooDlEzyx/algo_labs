@@ -21,7 +21,3 @@ def min_eating_speed(piles, h):
             minimum = middle + 1
     return minimum
 
-
-if __name__ == "__main__":
-    arr = [1, 12, 4, 6, 8]
-    print(min_eating_speed(arr, 5))
