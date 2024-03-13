@@ -30,7 +30,3 @@ def find_k_or_error(elem, k):
     if k < 1 or k > len(elem):
         raise KIsGreaterThenSizeOfArr()
     return quick_select(elem, 0, len(elem)-1, k-1)
-
-
-if __name__ == '__main__':
-    print(find_k_or_error([3, 2, 1, 5, 6, 4], 3))

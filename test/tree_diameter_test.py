@@ -1,7 +1,7 @@
 import sys
 import unittest
-from src.lab3 import max_diameter, BinaryTree, height
-sys.path.append('E:\\projects\\algo_labs\\Lab№3\\src')
+from src.tree_diameter import max_diameter, BinaryTree, height
+sys.path.append('E:\\projects\\algo_labs')
 
 
 class TestBinaryTreeFunctions(unittest.TestCase):
