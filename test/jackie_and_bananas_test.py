@@ -1,5 +1,7 @@
+import sys
 import unittest
-from lab2 import min_eating_speed, JackieWillBeCaught
+from src.jackie_and_bananas import min_eating_speed, JackieWillBeCaught
+sys.path.append('E:\\projects\\algo_labs')
 
 
 class TestMinEatingSpeed(unittest.TestCase):

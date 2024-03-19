@@ -1,5 +1,7 @@
+import sys
 import unittest
-from lab1_var3 import KIsGreaterThenSizeOfArr, find_k_or_error
+from src.kth_largest_elem import KIsGreaterThenSizeOfArr, find_k_or_error
+sys.path.append('E:\\projects\\algo_labs')
 
 
 class TestKthLargestElement(unittest.TestCase):
