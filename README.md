@@ -12,3 +12,7 @@ lvl 2 var 3
 lab3
 tree diameter
 lvl 3 var 3
+
+lab4
+heap based priority queue
+lvl 2 var 1
