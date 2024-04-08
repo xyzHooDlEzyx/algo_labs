@@ -1,7 +1,8 @@
 import sys
 import unittest
 from src.heap_based_priority_queue import PriorityQueue
-sys.path.append('E:\\projects\\algo_labs')
+
+sys.path.append("E:\\projects\\algo_labs")
 
 
 class PriorityQueueTest(unittest.TestCase):

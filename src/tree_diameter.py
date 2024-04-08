@@ -25,4 +25,3 @@ def max_diameter(node):
         max_diam = max(l_diameter, r_diameter, l_height + r_height)
 
         return max_diam
-

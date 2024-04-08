@@ -1,5 +1,5 @@
 class JackieWillBeCaught(Exception):
-    def __init__(self, message='Jackie does not have enough time to eat bananas'):
+    def __init__(self, message="Jackie does not have enough time to eat bananas"):
         self.message = message
         super().__init__(self.message)
 
@@ -20,4 +20,3 @@ def min_eating_speed(piles, h):
         else:
             minimum = middle + 1
     return minimum
-

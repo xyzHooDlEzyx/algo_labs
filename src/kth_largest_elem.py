@@ -1,5 +1,5 @@
-class KIsGreaterThenSizeOfArr (Exception):
-    def __init__(self, message='K is greater then size of input array'):
+class KIsGreaterThenSizeOfArr(Exception):
+    def __init__(self, message="K is greater then size of input array"):
         self.message = message
         super().__init__(self.message)
 
@@ -11,7 +11,7 @@ def set_pivot(elem, left, right):
         if elem[j] >= pivot:
             i += 1
             elem[i], elem[j] = elem[j], elem[i]
-    elem[i+1], elem[right] = elem[right], elem[i+1]
+    elem[i + 1], elem[right] = elem[right], elem[i + 1]
     return i + 1
 
 
@@ -29,4 +29,4 @@ def quick_select(elem, left, right, k):
 def find_k_or_error(elem, k):
     if k < 1 or k > len(elem):
         raise KIsGreaterThenSizeOfArr()
-    return quick_select(elem, 0, len(elem)-1, k-1)
+    return quick_select(elem, 0, len(elem) - 1, k - 1)
