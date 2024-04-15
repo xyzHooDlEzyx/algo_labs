@@ -43,12 +43,12 @@ class PriorityQueue:
         node = Node(value, priority)
         self.heap.append(node)
         self.size = len(self.heap)
-        self.shift_up(self.size-1)
+        self.shift_up(self.size - 1)
 
     def delete(self):
         if not self.heap:
             return None
-        self.swap(0, self.size-1)
+        self.swap(0, self.size - 1)
         value_to_delete = self.heap.pop()
         self.size -= 1
         self.shift_down(0)
@@ -67,4 +67,3 @@ if __name__ == "__main__":
 
     print(priority_queue.delete())
     print(priority_queue.peek())
-

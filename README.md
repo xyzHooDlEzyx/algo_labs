@@ -16,3 +16,7 @@ lvl 3 var 3
 lab4
 heap based priority queue
 lvl 2 var 1
+
+lab5
+islands counter
+lvl 3 var 3
