@@ -23,6 +23,11 @@ class TestIslandsCount(unittest.TestCase):
         result = islands_count(grid)
         self.assertEqual(result, 0)
 
+    def test_all_is_land(self):
+        grid = [["1", "1", "1"], ["1", "1", "1"], ["1", "1", "1"]]
+        result = islands_count(grid)
+        self.assertEqual(result, 1)
+
     def test_empty_grid(self):
         grid = []
         result = islands_count(grid)

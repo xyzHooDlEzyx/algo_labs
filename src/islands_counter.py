@@ -41,35 +41,3 @@ def islands_count(grid):
                 bfs(row, col)
                 islands += 1
     return islands
-
-
-def get_grid(file_name):
-    with open(file_name, "r") as file:
-        grid = []
-        for line in file:
-            row = []
-            line = line.lstrip("[").rstrip(']"')
-
-            for cell in line.split(","):
-                if cell.strip():
-                    cleaned_cell = cell.strip().strip('"')
-                    row.append(cleaned_cell)
-
-            grid.append(row)
-    return grid
-
-
-def write_answer(file_name, result):
-    with open(file_name, "w") as file:
-        file.write(str(result))
-
-
-def main():
-    grid = get_grid("input.txt")
-    print(grid)
-    count = islands_count(grid)
-    write_answer("output.txt", count)
-
-
-if __name__ == "__main__":
-    main()
