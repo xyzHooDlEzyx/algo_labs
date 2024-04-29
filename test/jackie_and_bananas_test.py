@@ -1,5 +1,6 @@
 import sys
 import unittest
+
 from src.jackie_and_bananas import min_eating_speed, JackieWillBeCaught
 
 sys.path.append("E:\\projects\\algo_labs")

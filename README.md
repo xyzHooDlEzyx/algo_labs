@@ -20,3 +20,11 @@ lvl 2 var 1
 lab5
 islands counter
 lvl 3 var 3
+
+lab6
+tribal wedding problem
+lvl 2 var 3
+
+lab7
+prefix tree
+lvl 3 var 3
