@@ -1,6 +1,8 @@
 import sys
 import unittest
+
 from src.tree_diameter import max_diameter, BinaryTree, height
+
 sys.path.append('E:\\projects\\algo_labs')
 
 
