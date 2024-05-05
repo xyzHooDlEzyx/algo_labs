@@ -56,14 +56,3 @@ class PriorityQueue:
 
     def swap(self, i, j):
         self.heap[i], self.heap[j] = self.heap[j], self.heap[i]
-
-
-if __name__ == "__main__":
-    priority_queue = PriorityQueue()
-    priority_queue.add(40, 3)
-    priority_queue.add(30, 2)
-    priority_queue.add(20, 1)
-    priority_queue.add(10, 0)
-
-    print(priority_queue.delete())
-    print(priority_queue.peek())

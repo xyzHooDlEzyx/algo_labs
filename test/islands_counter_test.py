@@ -1,8 +1,5 @@
-import sys
 import unittest
 from src.islands_counter import islands_count
-
-sys.path.append("E:\\projects\\algo_labs")
 
 
 class TestIslandsCount(unittest.TestCase):

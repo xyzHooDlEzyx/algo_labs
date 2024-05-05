@@ -3,7 +3,20 @@ from typing import Tuple, List, Dict
 
 
 def read_csv_to_graph(filename):
+
+    """
+    function that reads csv file
+    from given location
+    and returns graph as dictionary
+    Args:
+        filename:
+
+    Returns:
+    graph dict
+    """
+
     graph_dict = {}
+    
     with open(filename, mode="r", newline="", encoding="utf-8") as csvfile:
         reader = csv.reader(csvfile)
         farms = next(reader)[0].split(",")
@@ -35,6 +48,19 @@ def read_csv_to_graph(filename):
 
 def dfs(graph: Dict[str, Dict[str, int]], start: str, destination: str):
 
+    """
+    dfs function that receives
+    Args:
+        graph: dict
+        start: str
+        destination: str
+    has visited - set
+    and stack that contains:
+    current elements(vortexes) - name, weight of edge to this element(vortex) , and path to this element
+    Returns:
+    path(as list) to destination and max flow to destination vortex from this path
+    """
+
     stack = [(start, float("inf"), [])]
     visited = set()
 
@@ -56,37 +82,49 @@ def dfs(graph: Dict[str, Dict[str, int]], start: str, destination: str):
     return [], 0
 
 
-def decrease_weight_on_path(graph2, path: List[Tuple[str, str]], found_flow: int):
-    """_summary_
-
+def decrease_weight_on_path(graph: Dict[str, Dict[str, int]], path: List[Tuple[str, str]], found_flow: int):
+    """
+    decreases weight of edges after 1 full run of dfs
+    and if weight of edge = 0 deleting this edge
     Args:
-        graph2 (_type_): _description_
-        path (_type_): [(A, B), (B, C), (C, L)]
-        found_flow (_type_): _description_
+        graph: dict
+        path: list[tuple]
+        found_flow: int
+
+    Returns:
+    graph(dict) that contains edges
+    after run of this function returns
+    this dict with decreased weight of edges
+    or/and deleted ones
     """
     for edge in path:
-        graph2[edge[0]][edge[1]] -= found_flow
-        if graph2[edge[0]][edge[1]] == 0:
-            del graph2[edge[0]][edge[1]]
+        graph[edge[0]][edge[1]] -= found_flow
+        if graph[edge[0]][edge[1]] == 0:
+            del graph[edge[0]][edge[1]]
 
 
-def max_flow(graph3, start, destination):
+def max_flow(graph: Dict[str, Dict[str, int]], start: str, destination: str):
+
+    """
+    main function that runs dfs
+    and decrease_weight func
+    Args:
+        graph:dict
+        start:str
+        destination:str
+
+    Returns:
+    max flow after calculation as int
+
+    """
     total_flow = 0
     while True:
-        path, found_flow = dfs(graph3, start, destination)
+        path, found_flow = dfs(graph, start, destination)
 
         if found_flow == 0:
             break
 
         total_flow += found_flow
-        decrease_weight_on_path(graph3, path, found_flow)
+        decrease_weight_on_path(graph, path, found_flow)
 
     return total_flow
-
-
-if __name__ == "__main__":
-
-    file = "source/roads.csv"
-    graph_dictionary = read_csv_to_graph(file)
-    print(graph_dictionary)
-    print(max_flow(graph_dictionary, "VS", "VD"))
