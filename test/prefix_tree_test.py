@@ -1,9 +1,6 @@
-import sys
 import unittest
 
 from src.prefix_tree import PrefixTree
-
-sys.path.append("E:\\projects\\algo_labs")
 
 
 class TestTrie(unittest.TestCase):
