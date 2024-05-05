@@ -57,14 +57,3 @@ def count_pairs(tribes, couples):
         if i not in visited:
             dfs(i, i % 2 != 0)
     return count * 2
-
-
-if __name__ == "__main__":
-
-    # print(count_pairs(3, [[1, 2], [2, 4], [3, 5]]))
-
-    n, pairs = read_input("input.txt")
-    print(n, pairs)
-    result = count_pairs(n, pairs)
-    print(result)
-    # write_output("output.txt", result)

@@ -1,15 +1,14 @@
-import sys
 import unittest
 
-from src.tribal_wedding_proplem import count_pairs
-
-sys.path.append("E:\\projects\\algo_labs")
+from src.tribal_wedding_proplem import count_pairs, read_input
 
 
 class TribalWeddingTest(unittest.TestCase):
 
-    def test_work(self):
-        self.assertEqual(count_pairs(3, [(1, 2), (3, 4), (5, 6)]), 6)
+    def test_work_and_input(self):
+        file = "../test/source/input.txt"
+        n, pairs = read_input(file)
+        self.assertEqual(count_pairs(n, pairs), 4)
 
     def test_zero(self):
         input1 = [[0, 0], [0, 0], [0, 0]]
