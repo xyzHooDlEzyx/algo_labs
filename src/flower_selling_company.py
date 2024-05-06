@@ -11,7 +11,7 @@ def read_csv_to_graph(filename):
         filename:string of path
 
     Returns:
-    graph as dict
+    adjacency list as dict
     """
 
     graph_dict = {}
@@ -50,14 +50,11 @@ def dfs(graph: Dict[str, Dict[str, int]], start: str, destination: str):
     """
     dfs that runs from start point to destination
     Args:
-        graph: dict
+        graph: adjacency list as dict
         start: str
         destination: str
-    has visited - set
-    and stack that contains:
-    current elements(vortexes) - name, weight of edge to this element(vortex) , and path to this element
     Returns:
-    path(as list) to destination and max flow to destination vortex from this path
+    path(as list with tuple)
     """
 
     stack = [(start, float("inf"), [])]
@@ -83,13 +80,9 @@ def dfs(graph: Dict[str, Dict[str, int]], start: str, destination: str):
 
 def decrease_weight_on_path(graph: Dict[str, Dict[str, int]], path: List[Tuple[str, str]], found_flow: int):
     """
-    decreases weight of edges after 1 full run of dfs
-    from path that he ran
+    decreases weight of edges
+    from path by found_flow
     and if weight of edge = 0 deleting this edge
-    Args:
-        graph: dict
-        path: list[tuple]
-        found_flow: int
 
     Returns:
     graph(dict) with changes
@@ -106,7 +99,7 @@ def max_flow(graph: Dict[str, Dict[str, int]], start: str, destination: str):
     main function that runs dfs
     and decrease_weight
     Args:
-        graph:dict
+        graph:adjacency list as dict
         start:str
         destination:str
 
