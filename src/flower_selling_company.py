@@ -8,7 +8,7 @@ def read_csv_to_graph(filename):
     reads csv file
     and returns graph as dictionary
     Args:
-        filename:string of path
+        filename: path string
 
     Returns:
     adjacency list as dict
