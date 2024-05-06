@@ -5,14 +5,13 @@ from typing import Tuple, List, Dict
 def read_csv_to_graph(filename):
 
     """
-    function that reads csv file
-    from given location
+    reads csv file
     and returns graph as dictionary
     Args:
-        filename:
+        filename:string of path
 
     Returns:
-    graph dict
+    graph as dict
     """
 
     graph_dict = {}
@@ -49,7 +48,7 @@ def read_csv_to_graph(filename):
 def dfs(graph: Dict[str, Dict[str, int]], start: str, destination: str):
 
     """
-    dfs function that receives
+    dfs that runs from start point to destination
     Args:
         graph: dict
         start: str
@@ -85,6 +84,7 @@ def dfs(graph: Dict[str, Dict[str, int]], start: str, destination: str):
 def decrease_weight_on_path(graph: Dict[str, Dict[str, int]], path: List[Tuple[str, str]], found_flow: int):
     """
     decreases weight of edges after 1 full run of dfs
+    from path that he ran
     and if weight of edge = 0 deleting this edge
     Args:
         graph: dict
@@ -92,10 +92,7 @@ def decrease_weight_on_path(graph: Dict[str, Dict[str, int]], path: List[Tuple[s
         found_flow: int
 
     Returns:
-    graph(dict) that contains edges
-    after run of this function returns
-    this dict with decreased weight of edges
-    or/and deleted ones
+    graph(dict) with changes
     """
     for edge in path:
         graph[edge[0]][edge[1]] -= found_flow
@@ -107,7 +104,7 @@ def max_flow(graph: Dict[str, Dict[str, int]], start: str, destination: str):
 
     """
     main function that runs dfs
-    and decrease_weight func
+    and decrease_weight
     Args:
         graph:dict
         start:str
