@@ -8,7 +8,6 @@ def max_chain_length(in_list):
         dp[word] = 1
         for i in range(len(word)):
             prev = word[:i] + word[i + 1:]
-            print(f"word: {word}, prev: {prev}")
             if prev in in_list:
                 dp[word] = max(dp[word], dp[prev] + 1)
         max_length = max(max_length, dp[word])
