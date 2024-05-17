@@ -41,7 +41,7 @@ class MaxWordChainTest(unittest.TestCase):
 
         write_output(result, self.output_file)
 
-        with open(self.output_file, "r") as file:
+        with open(self.output_file, "r", encoding="utf-8") as file:
             output = int(file.read().strip())
 
         self.assertEqual(output, result)
