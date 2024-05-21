@@ -13,7 +13,7 @@ class PrefixTree:
         current = self.root
         for i, char in enumerate(word):
             if char not in current.children:
-                prefix = word[0 : i + 1]
+                prefix = word[0: i + 1]
                 current.children[char] = TrieNode(prefix)
             current = current.children[char]
         current.is_end_of_word = True
@@ -24,8 +24,7 @@ class PrefixTree:
             if char not in current.children:
                 return None
             current = current.children[char]
-        if current.is_end_of_word:
-            return current
+        return current if current.is_end_of_word else None
 
     def prefix_search(self, prefix):
         current = self.root

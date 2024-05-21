@@ -28,3 +28,11 @@ lvl 2 var 3
 lab7
 prefix tree
 lvl 3 var 3
+
+lab8
+flower selling company
+lvl 2 var 3
+
+lab9
+max words chain
+lvl 2 var 3
