@@ -11,7 +11,6 @@ def read_input(file_name):
             line = file.readline().strip()
             group1, group2 = map(int, line.split())
             edges_strings.append((group1, group2))
-    # print(z, inp)
     return edges_count, edges_strings
 
 
@@ -28,7 +27,6 @@ def dfs(node, is_male):
         if neighbour not in visited:
             if is_male and neighbour % 2 == 0:
                 count += 1
-                # print(count)
             elif not is_male and neighbour % 2 != 0:
                 count += 1
             dfs(neighbour, not is_male)
